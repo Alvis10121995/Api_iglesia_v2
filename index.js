@@ -5,7 +5,6 @@ const cors = require('cors')
 const bodyParser = require("body-parser");
 const Rutas = require('./routes/Routes')
 const cron = require('node-cron');
-
 const PORT =  process.env.port || 6000;
 
 
@@ -28,7 +27,7 @@ let mes=2
 let year=2024
 let fechaExpiracion = new Date(`${year}-${mes}-${dia+1}`);
 
-  
+app.use(Rutas);
 
 
 // retorna true si las fechas son iguales
@@ -105,17 +104,7 @@ app.get('/instagram', async (req, res) => {
 });
 
 
-app.get('/youtube', async (req, res) => {
-  try {
-    const respuesta = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.key2}&channelId=${process.env.id2}&part=snippet,id&order=date&maxResults=20`);
-    const datos = await respuesta.json();
-       res.json(datos);
-  } catch (error) {
-     console.error('Error al consumir la API:', error.message);
-    res.status(500).json({ error: 'Error interno del servidor' });
-  }
-});
-
+ 
 
 
 
