@@ -1,6 +1,6 @@
 require('dotenv').config();
 
- // controllers.js
+ // controllers.js solo local
 const youtube = async (req, res) => {
     try {
         const respuesta = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.key2}&channelId=${process.env.id2}&part=snippet,id&order=date&maxResults=20`);
