@@ -104,6 +104,9 @@ app.get('/instagram', async (req, res) => {
 });
 
 
+app.get('/',  (req, res) => {
+  res.send("API iglesia")
+});
  
 
 
