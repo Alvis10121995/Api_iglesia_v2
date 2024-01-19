@@ -2,11 +2,7 @@
 const fs = require('fs');
 const transporter = require('../conect/conexion')
 require('dotenv').config();
-const test = (req , res)=>{
-
-    res.send("Mensaje desde controlados")
-
-}
+ 
 
 
 const data = (req , res)=>{
@@ -20,38 +16,51 @@ const data = (req , res)=>{
 const upimg = async function  (req, res, next){
    
      
-
+  try {
     const image = req.file;
     const { nombre, apellido, correo } = req.body;
   
-    const mailOptions = {
-      // credenciales
-      from:  process.env.correodesalida,
-      to:   process.env.correodestino,
-      subject: 'informacion de cliente',
-      text: ` 
-        Hola, información de formulario, API.
-        
-       Nombre:  ${nombre} 
-       Apellido: ${apellido} 
-        Correo:  ${correo}
-        
-        Comprobate de pago
-        `,
-          //parte para manejar archivos adjuntados
-      attachments: [
-        {
-          filename: 'comprobante.jpg',
-          path: req.file.path,
-        },
-      ],
-  
-  
-    };
+
+
+  const mailOptions = {
+    // credenciales
+    from:  process.env.correodesalida,
+    to:   process.env.correodestino,
+    subject: 'informacion de cliente',
+    text: ` 
+      Hola, información de formulario, API.
+      
+     Nombre:  ${nombre} 
+     Apellido: ${apellido} 
+      Correo:  ${correo}
+      
+      Comprobate de pago
+      `,
+        //parte para manejar archivos adjuntados
+    attachments: [
+      {
+        filename: 'comprobante.jpg',
+        path: req.file.path,
+      },
+    ],
+
+
+  };
+ 
+
+
+
+
+
+
+
+
+
+
     
   
       
-    try {
+  
    
       // manejo de error
       const info = await transporter.sendMail(mailOptions);
@@ -72,7 +81,7 @@ const upimg = async function  (req, res, next){
   
     } catch (error) {
        console.log("find error",error)
-       res.send("error")
+       res.json("error en sessión de envio de correo", error)
     }
   
    
