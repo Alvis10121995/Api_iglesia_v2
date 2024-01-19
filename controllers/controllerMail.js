@@ -25,6 +25,7 @@ const upimg = async function  (req, res, next){
     const { nombre, apellido, correo } = req.body;
   
     const mailOptions = {
+      // credenciales
       from:  process.env.correodesalida,
       to:   process.env.correodestino,
       subject: 'informacion de cliente',
