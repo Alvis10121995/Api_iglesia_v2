@@ -1,3 +1,5 @@
+//se verifica espacio del servidor
+const os = require('os');
 const express = require('express');
 require('dotenv').config();
 const app = express();
@@ -11,6 +13,29 @@ const PORT =  process.env.port || 6000;
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+
+const freeMemoryBytes = os.freemem();
+const totalMemoryBytes = os.totalmem();
+
+const bytesToMegabytes = (bytes) => bytes / (1024 * 1024);
+const bytesToGigabytes = (bytes) => bytes / (1024 * 1024 * 1024);
+
+app.get('/disk',  (req, res) => {
+
+  const totalb = bytesToMegabytes(freeMemoryBytes);
+  const totalg = bytesToGigabytes(totalMemoryBytes);
+
+  res.json({ "bytesToMegabytes":totalb,"bytesToGigabytes":totalg })
+  
+  
+
+
+}
+
+)
+  
+
+
 
 
 // se inicializa token
