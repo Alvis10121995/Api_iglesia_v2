@@ -17,7 +17,7 @@ const upimg = async function  (req, res){
    
      
   try {
-    // se esconde temporalemten
+    // se esconde -- temporalemten
     //const image = req.file;
     const { nombre, apellido, correo } = req.body;
     
