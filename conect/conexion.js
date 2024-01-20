@@ -1,3 +1,4 @@
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 
@@ -10,27 +11,12 @@ const transporter = nodemailer.createTransport({
     port : 465,
     secure: true, 
     auth: {
-      user: 'alvis.atencio3@gmail.com',
-      pass: 'rrfg ovhgtfjz qusc',
+      user: process.env.user,
+      pass: process.env.pass,
     },
   });
 
 
-/*
-// transport con mailtrap
-var transporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
-    auth: {
-      user: "92880205b88c71",
-      pass: "75dda53727879c"
-    }
-  }); */
-
-
-  
-
-// verificar conexion con el servidor
 
 transporter.verify( function(error, success) {
  if(error){
@@ -44,19 +30,6 @@ transporter.verify( function(error, success) {
 } )
 
 
-/*
-
-//* trasport con sendgrid
-const transporter = nodemailer.createTransport(
-    nodemailerSendgrid(
-        {
-            apiKey:'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'
-        }
-    )
-
-);
-
-*/
 
 
 module.exports = transporter;
