@@ -1,5 +1,5 @@
 // se esconde temporalmente para hacer pruebas
-//const fs = require('fs');
+const fs = require('fs');
 const transporter = require('../conect/conexion')
 require('dotenv').config();
  
