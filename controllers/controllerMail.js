@@ -20,7 +20,10 @@ const upimg = async function  (req, res){
     // se esconde temporalemten
     //const image = req.file;
     const { nombre, apellido, correo } = req.body;
-  
+    
+    if(!nombre || !apellido || !correo){
+       res.json({"mensaje error":"envio un campo vacio"}) 
+     }
 
 
   const mailOptions = {
