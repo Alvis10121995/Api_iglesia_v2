@@ -1,5 +1,5 @@
-
-const fs = require('fs');
+// se esconde temporalmente para hacer pruebas
+//const fs = require('fs');
 const transporter = require('../conect/conexion')
 require('dotenv').config();
  
@@ -13,11 +13,12 @@ const data = (req , res)=>{
 }
 
 
-const upimg = async function  (req, res, next){
+const upimg = async function  (req, res){
    
      
   try {
-    const image = req.file;
+    // se esconde temporalemten
+    //const image = req.file;
     const { nombre, apellido, correo } = req.body;
   
 
@@ -36,6 +37,9 @@ const upimg = async function  (req, res, next){
       
       Comprobate de pago
       `,
+
+      /* se quita temporalmente envio de adjunto
+
         //parte para manejar archivos adjuntados
     attachments: [
       {
@@ -43,7 +47,7 @@ const upimg = async function  (req, res, next){
         path: req.file.path,
       },
     ],
-
+*/
 
   };
  
@@ -64,18 +68,20 @@ const upimg = async function  (req, res, next){
    
       // manejo de error
       const info = await transporter.sendMail(mailOptions);
-      console.log(image)
+      //se esconde temporalmente
+      //console.log(image)
   
   
-  
-      fs.unlink(req.file.path, (err) => {
+     //se esconde temporalmente
+     /* 
+     fs.unlink(req.file.path, (err) => {
         if (err) {
           console.error(err);
         } else {
           console.log('Imagen eliminda');
         }
       });
-       
+       */
   
       res.json(info);
   
