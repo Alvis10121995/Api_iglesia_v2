@@ -7,7 +7,7 @@ const controllermal = require('../controllers/controllerMail');
 
 const path = require('path');
 
-/* se esconde temporalmente muller para no guardar imanges y solo enviar correos sin atachmen
+// se esconde temporalmente muller para no guardar imanges y solo enviar correos sin atachmen
 // configuración de almacenamiento y guardado de immagenes
 const multer  = require('multer')
 
@@ -29,12 +29,12 @@ const storage = multer.diskStorage({
  router.post('/formdata', upload.single('imagen'),controllermal.upimg)
 
  
- */
+ 
 
 
 router.get('/youtubev2', controller.youtube);
 
-router.post('/formdata', controllermal.upimg)
+//router.post('/formdata', controllermal.upimg)
 
 
 

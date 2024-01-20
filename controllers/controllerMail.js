@@ -18,14 +18,32 @@ const upimg = async function  (req, res){
      
   try {
     // se esconde -- temporalemten
-    //const image = req.file;
+    const image = req.file;
+    
+   
+
+    /// prueba para saber ruta
+
     const { nombre, apellido, correo } = req.body;
+    
+    fs.unlink(req.file.path, (err) => {
+      if (err) {
+        console.error(err);
+        res.json({"error file":err})
+      } else {
+        console.log('Imagen eliminda');
+        res.json({"info":image,"ruta":req.file.path})
+      }
+    });
+     
+     //se comenta para hacer prueba
+    // res.json({"info":image,"ruta":req.file.path})
     
     if(!nombre || !apellido || !correo){
        res.json({"mensaje error":"envio un campo vacio"}) 
      }
 
-
+/*
   const mailOptions = {
     // credenciales
     from:  process.env.correodesalida,
@@ -50,10 +68,10 @@ const upimg = async function  (req, res){
         path: req.file.path,
       },
     ],
-*/
+
 
   };
- 
+*/ 
 
 
 
@@ -70,7 +88,7 @@ const upimg = async function  (req, res){
   
    
       // manejo de error
-      const info = await transporter.sendMail(mailOptions);
+    //  const info = await transporter.sendMail(mailOptions);
       //se esconde temporalmente
       //console.log(image)
   
@@ -84,9 +102,9 @@ const upimg = async function  (req, res){
           console.log('Imagen eliminda');
         }
       });
-       */
+       
   
-      res.json(info);
+      res.json(info);*/
   
     } catch (error) {
        console.log("find error",error)
