@@ -30,12 +30,12 @@ const upimg = async function  (req, res){
        res.json({"mensaje error":"envio un campo vacio"}) 
      }
 
-
+   
   const mailOptions = {
     // credenciales
     from:  process.env.correodesalida,
     //to:   process.env.correodestino, test con otro correo
-     to: "sk8023@hotmail.com",
+     to: ['sk8023@hotmail.com', 'alvis.atencio3@gmail.com','maydiaz3095@gmail.com'],
     subject: 'informacion de cliente',
     text: ` 
       Hola, información de formulario, API.
