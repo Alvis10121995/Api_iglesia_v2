@@ -34,7 +34,8 @@ const upimg = async function  (req, res){
   const mailOptions = {
     // credenciales
     from:  process.env.correodesalida,
-    to:   process.env.correodestino,
+    //to:   process.env.correodestino, test con otro correo
+     to: "sk8023@hotmail.com",
     subject: 'informacion de cliente',
     text: ` 
       Hola, información de formulario, API.
