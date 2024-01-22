@@ -24,7 +24,7 @@ const upimg = async function  (req, res){
 
     /// prueba para saber ruta
 
-    const { nombre, apellido, correo } = req.body;
+    const { nombre, apellido, correo, url } = req.body;
     
     if(!nombre || !apellido || !correo){
        res.json({"mensaje error":"envio un campo vacio"}) 
@@ -42,6 +42,7 @@ const upimg = async function  (req, res){
      Nombre:  ${nombre} 
      Apellido: ${apellido} 
       Correo:  ${correo}
+      Link de comprobante:  ${url}
       
       Comprobate de pago
       `,
