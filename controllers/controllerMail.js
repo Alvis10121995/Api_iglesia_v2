@@ -35,18 +35,10 @@ const upimg = async function  (req, res){
     // credenciales
     from:  process.env.correodesalida,
     //to:   process.env.correodestino, test con otro correo
-     to: ['sk8023@hotmail.com', 'alvis.atencio3@gmail.com','maydiaz3095@gmail.com'],
+     to: ['alvis.atencio3@gmail.com','maydiaz3095@gmail.com'],
     subject: 'informacion de cliente',
-    text: ` 
-      Hola, información de formulario, API.
+  text: ' <h1> Hola </h1>, información de formulario, API. <hr>  Nombre:  ${nombre}   Apellido: ${apellido}   Correo:  ${correo}  Link de comprobante:  ${url}Comprobate de pago'
       
-     Nombre:  ${nombre} 
-     Apellido: ${apellido} 
-      Correo:  ${correo}
-      Link de comprobante:  ${url}
-      
-      Comprobate de pago
-      `,
 
       /* se quita temporalmente envio de adjunto
 
