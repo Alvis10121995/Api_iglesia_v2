@@ -38,14 +38,16 @@ const upimg = async function  (req, res){
      to: ['alvis.atencio3@gmail.com','maydiaz3095@gmail.com'],
     subject: 'informacion de cliente',
     text: ` 
-      Hola, información de formulario, API.
+     Registo de intención 
+     
+     información de solicitud de intención 
       
-    <hr>  Nombre:  ${nombre} 
-     Apellido: ${apellido} 
+      Nombre:  ${nombre} 
+      Apellido: ${apellido} 
       Correo:  ${correo}
-      Link de comprobante:  ${url}
+      Comprobate de pago:  ${url}
       
-      Comprobate de pago
+      Favor descargar imagen, la misma tiene un tiempo de 30 días
       `,
 
       /* se quita temporalmente envio de adjunto
