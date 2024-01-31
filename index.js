@@ -129,7 +129,7 @@ app.get('/instagram', async (req, res) => {
 
 
 app.get('/',  (req, res) => {
-  res.send("API iglesia")
+  res.send("API iglesia v2")
 });
  
 
